@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.ensemble import RandomForestRegressor,RandomForestClassifier
 from sklearn.neighbors import KNeighborsRegressor,KNeighborsClassifier
-from sklearn.preprocessing import Imputer
+from sklearn.impute import SimpleImputer
 from sklearn.utils.validation import check_array, check_is_fitted, check_X_y
 import xgboost as xgb 
 import lightgbm as lgb 
@@ -23,8 +23,8 @@ class MissingImputer(BaseEstimator, TransformerMixin):
 		'''
 		self.ini_fill = ini_fill
 		self.max_iter = max_iter
-		self.imputer_reg = Imputer(strategy = ini_strategy_reg)
-		self.imputer_clf = Imputer(strategy = ini_strategy_clf)
+		self.imputer_reg = SimpleImputer(strategy = ini_strategy_reg)
+		self.imputer_clf = SimpleImputer(strategy = ini_strategy_clf)
 		self.with_cat = with_cat
 		self.cat_index = cat_index
 		self.tol = tol
