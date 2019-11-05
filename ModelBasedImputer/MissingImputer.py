@@ -123,7 +123,7 @@ class MissingImputer(BaseEstimator, TransformerMixin):
 			if np.abs(np.diff(self.gamma_[-2:])) < self.tol:
 				break
 		#for test
-		print(imputed_X)
+		#print(imputed_X)
 
 		return self 
 
